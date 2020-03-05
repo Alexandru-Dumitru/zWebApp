@@ -4,7 +4,9 @@ block content
   h1= title
   p Welcome to My First Mainframe Web Application
   button(type="submit", form="getIplInfo") Get IPL Info
+  button(type="submit", form="runRexx") Run REXX
   form(id="getIplInfo",action="/iplinfo", method="GET")
+  form(id="runRexx",action="/runRexx", method="GET")
   if output
     div 
       p Output:

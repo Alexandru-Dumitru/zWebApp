@@ -18,6 +18,14 @@ class Mainframe {
         const commandResponse = out.commandResponse.split('\n');
         return commandResponse;
     }
+
+    async runRexx(account, rexx) {
+        const session = zowe.ZosmfSession.createBasicZosmfSessionFromArguments(this.profile);
+        const command = "exec " + rexx;
+        const out = await zowe.IssueTso.issueTsoCommand(session, account, command)
+        const commandResponse = out.commandResponse.split('\n');
+        return commandResponse;
+    }
 }
 
 module.exports = Mainframe;

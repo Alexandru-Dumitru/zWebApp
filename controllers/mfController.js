@@ -17,3 +17,13 @@ exports.getIplInfo = function(req, res, next) {
         console.log(err);
     });
 }
+
+exports.runRexx = function(req, res, next) {
+    const rexx = "'xxxxxxx.CLIST(HELLO)'";
+    const rexxOut = mainframe.runRexx(account, rexx);
+    rexxOut.then(function(result) {
+        res.render('index', { title: 'z/OS IPL INFO' , output: result});
+    }, function(err) {
+        console.log(err);
+    });
+}
